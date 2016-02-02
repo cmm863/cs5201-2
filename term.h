@@ -9,6 +9,7 @@ template <typename T>
 class Term
 {
 public:
+  Term();
   Term(T m_coefficient, int m_degree) : m_coefficient(m_coefficient), m_degree(m_degree) { };
 
   int getDegree() const;
