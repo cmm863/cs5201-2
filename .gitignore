@@ -4,6 +4,8 @@
 .idea/*
 CMakeCache.txt
 CMakeFiles/*
+2
+a.out
 
 ## File-based project format:
 *.iws
