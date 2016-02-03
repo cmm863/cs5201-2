@@ -17,5 +17,6 @@ int main()
   pf.appendTerm(x);
   pf.appendTerm(y);
   cout << pf.debugString() << endl;
+  cout << pf.getNumTerms() << endl;
   return 0;
 }

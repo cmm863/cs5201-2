@@ -42,4 +42,11 @@ string PolynomialFunction<T>::debugString()
   return "hi";
 }
 
+template <typename T>
+int PolynomialFunction<T>::getNumTerms()
+{
+  return m_num_terms;
+}
+
+
 #endif //INC_2_POLYNOMIAL_FNCT_HPP
