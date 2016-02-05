@@ -8,22 +8,23 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-  if(argc < 2) {
+  if (argc < 2)
+  {
     cout << "No file given." << endl;
     return 1;
   }
 
   string numPolynomials, numTerms, coefficient, degree;
   ifstream inputFile(argv[1]);
-  if(inputFile.is_open())
+  if (inputFile.is_open())
   {
     inputFile >> numPolynomials;
     cout << numPolynomials << endl;
-    for(int i = 0; i < atoi(numPolynomials.c_str()); i++)
+    for (int i = 0; i < atoi(numPolynomials.c_str()); i++)
     {
       inputFile >> numTerms;
       cout << numTerms << endl;
-      for(int j = 0; j < atoi(numTerms.c_str()); j++)
+      for (int j = 0; j < atoi(numTerms.c_str()); j++)
       {
         inputFile >> coefficient;
         cout << "Coefficient: " << coefficient << endl;
@@ -31,6 +32,11 @@ int main(int argc, char* argv[])
         cout << "Degree: " << degree << endl;
       }
     }
+  }
+  else
+  {
+    cout << "File failed to open: " << argv[1] << endl;
+    return 1;
   }
   Term<float> t = Term<float>::Term(5.3, 4);
   Term<float> x = Term<float>::Term(28, 5);
