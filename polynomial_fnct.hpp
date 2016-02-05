@@ -27,6 +27,7 @@ template <typename T>
 string PolynomialFunction<T>::debugString()
 {
   vector<T> degrees;
+  string ret;
   for(auto t : m_terms)
   {
     degrees.push_back(t.first);
@@ -36,16 +37,16 @@ string PolynomialFunction<T>::debugString()
 
   for(auto d : degrees)
   {
-    cout << "Degree: " << d << endl;
-    cout << "Coefficient: " << m_terms[d].getCoefficient() << endl;
+    ret += "Coefficient: " + to_string(m_terms[d].getCoefficient()) + "\n";
+    ret += "Degree: " + to_string(d) + "\n";
   }
-  return "hi";
+  return ret;
 }
 
 template <typename T>
-int PolynomialFunction<T>::getNumTerms()
+unsigned long PolynomialFunction<T>::getNumTerms()
 {
-  return m_num_terms;
+  return m_terms.size();
 }
 
 

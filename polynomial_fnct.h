@@ -18,9 +18,8 @@ class PolynomialFunction
 public:
   void appendTerm(Term<T> t);
   string debugString();
-  int getNumTerms();
+  unsigned long getNumTerms();
 private:
-  int m_num_terms;
   map<char, Term<T> > m_terms;
 };
 
