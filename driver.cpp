@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
 #include "term.h"
 #include "polynomial_fnct.h"
 
@@ -12,11 +13,25 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  string line;
+  string numPolynomials, numTerms, coefficient, degree;
   ifstream inputFile(argv[1]);
-
-  getline(inputFile, line);
-  cout << line << endl;
+  if(inputFile.is_open())
+  {
+    inputFile >> numPolynomials;
+    cout << numPolynomials << endl;
+    for(int i = 0; i < atoi(numPolynomials.c_str()); i++)
+    {
+      inputFile >> numTerms;
+      cout << numTerms << endl;
+      for(int j = 0; j < atoi(numTerms.c_str()); j++)
+      {
+        inputFile >> coefficient;
+        cout << "Coefficient: " << coefficient << endl;
+        inputFile >> degree;
+        cout << "Degree: " << degree << endl;
+      }
+    }
+  }
   Term<float> t = Term<float>::Term(5.3, 4);
   Term<float> x = Term<float>::Term(28, 5);
   Term<float> y = Term<float>::Term(30, 3);
