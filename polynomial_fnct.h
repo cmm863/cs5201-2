@@ -19,8 +19,9 @@ public:
   void appendTerm(Term<T> t);
   string debugString();
   unsigned long getNumTerms();
+  PolynomialFunction& operator+=(const PolynomialFunction& rhs);
 private:
-  map<char, Term<T> > m_terms;
+  vector<Term<T> > m_terms;
 };
 
 #include "polynomial_fnct.hpp"

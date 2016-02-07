@@ -14,6 +14,7 @@ public:
 
   int getDegree() const;
   T getCoefficient() const;
+  const Term operator +(const Term& rhs);
 
 private:
   int m_degree;

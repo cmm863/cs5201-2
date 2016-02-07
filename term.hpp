@@ -20,3 +20,9 @@ T Term<T>::getCoefficient() const
 {
   return m_coefficient;
 }
+
+template <typename T>
+const Term<T> Term<T>::operator+(const Term<T> &rhs)
+{
+  return Term(this->getCoefficient() + rhs.getCoefficient(), this->getDegree());
+}

@@ -14,10 +14,16 @@ int main(int argc, char* argv[])
     return 1;
   }
 
+  Term<int> a = Term<int>::Term(3, 5);
+  Term<int> b = Term<int>::Term(4, 5);
+  a = a + b;
+  cout << "d: " << a.getDegree() << endl;
+  cout << "c: " << a.getCoefficient() << endl;
+
   // Declare variables
   string numPolynomials, numTerms, coefficient, degree;
   ifstream inputFile(argv[1]);
-  PolynomialFunction<float> * polynomialArray;
+  vector<PolynomialFunction<float> > polynomialVector;
 
   // Start going through file
   if (inputFile.is_open())
@@ -25,12 +31,15 @@ int main(int argc, char* argv[])
     inputFile >> numPolynomials;
 
     // Create an array with each polynomial in it
-    polynomialArray = new PolynomialFunction<float>[atoi(numPolynomials.c_str())];
+    for(int i = 0; i < atoi(numPolynomials.c_str()); i++)
+    {
+      polynomialVector.push_back(PolynomialFunction<float>());
+    }
 
     // For each polynomial
     for (int i = 0; i < atoi(numPolynomials.c_str()); i++)
     {
-      polynomialArray[i] = PolynomialFunction<float>();
+      polynomialVector[i] = PolynomialFunction<float>();
       inputFile >> numTerms;
 
       // For each term
@@ -40,12 +49,12 @@ int main(int argc, char* argv[])
         inputFile >> degree;
 
         // Add term to polynomial
-        polynomialArray[i].appendTerm(Term<float>::Term(stof(coefficient.c_str()), atoi(degree.c_str())));
+        polynomialVector[i].appendTerm(Term<float>::Term(stof(coefficient.c_str()), atoi(degree.c_str())));
       }
 
       // Print out polynomial so we're sure it loaded correctly
-      cout << polynomialArray[i].getNumTerms() << endl;
-      cout << polynomialArray[i].debugString() << endl;
+      cout << polynomialVector[i].getNumTerms() << endl;
+      cout << polynomialVector[i].debugString() << endl;
     }
 
   }
