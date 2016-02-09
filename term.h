@@ -6,6 +6,12 @@
 #define INC_2_TERM_H
 
 template <typename T>
+class Term;
+
+template <typename T>
+Term<T> operator *(float c, const Term<T>& rhs);
+
+template <typename T>
 class Term
 {
 public:
@@ -15,6 +21,10 @@ public:
   int getDegree() const;
   T getCoefficient() const;
   const Term operator +(const Term& rhs);
+  friend Term operator * <>(float c, const Term& rhs);
+  Term operator *(float c);
+  Term operator *=(float c);
+  T operator ()(float c);
 
 private:
   int m_degree;
