@@ -16,7 +16,10 @@ int main(int argc, char* argv[])
 
   Term<int> a = Term<int>::Term(3, 5);
   Term<int> b = Term<int>::Term(4, 5);
-  a = a + b;
+  a = a * 5;
+  cout << "d: " << a.getDegree() << endl;
+  cout << "c: " << a.getCoefficient() << endl;
+  a *= 5;
   cout << "d: " << a.getDegree() << endl;
   cout << "c: " << a.getCoefficient() << endl;
 
@@ -51,10 +54,8 @@ int main(int argc, char* argv[])
         // Add term to polynomial
         polynomialVector[i].appendTerm(Term<float>::Term(stof(coefficient.c_str()), atoi(degree.c_str())));
       }
-
       // Print out polynomial so we're sure it loaded correctly
-      cout << polynomialVector[i].getNumTerms() << endl;
-      cout << polynomialVector[i].debugString() << endl;
+      cout << polynomialVector[i](1) << endl;
     }
 
   }
