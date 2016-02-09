@@ -12,6 +12,15 @@
 
 using namespace std;
 
+// Forward declarations for friend functions
+template <typename T>
+class PolynomialFunction;
+
+template <typename T>
+ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs);
+
+
+
 template <typename T>
 class PolynomialFunction
 {
@@ -20,6 +29,11 @@ public:
   string debugString();
   unsigned long getNumTerms();
   PolynomialFunction& operator+=(const PolynomialFunction& rhs);
+  const PolynomialFunction operator *(const long double c);
+  const Term<T>& operator [](const int index);
+  friend ostream& operator << <>(ostream& out, const PolynomialFunction<T>& rhs);
+  const PolynomialFunction operator ~();
+  const T operator ()(float c);
 private:
   vector<Term<T> > m_terms;
 };
