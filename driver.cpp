@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
   Term<int> b = Term<int>::Term(4, 5);
   cout << (a != b) << endl;
   cout << (a != a) << endl;
-  a = a * 5;
+  a = a + b + a;
   cout << "d: " << a.getDegree() << endl;
   cout << "c: " << a.getCoefficient() << endl;
   a *= 5;
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
   if (inputFile.is_open())
   {
     inputFile >> numPolynomials;
-
+git
     // Create an array with each polynomial in it
     for(int i = 0; i < atoi(numPolynomials.c_str()); i++)
     {

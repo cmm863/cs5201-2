@@ -12,6 +12,14 @@ template <typename T>
 Term<T> operator *(float c, const Term<T>& rhs);
 
 template <typename T>
+Term<T> operator *(const Term<T>& rhs, float c);
+
+template <typename T>
+Term<T> operator +(const Term<T>& lhs, const Term<T>& rhs);
+
+
+
+template <typename T>
 class Term
 {
 public:
@@ -20,9 +28,9 @@ public:
 
   int getDegree() const;
   T getCoefficient() const;
-  const Term operator +(const Term& rhs);
+  friend Term operator + <>(const Term& lhs, const Term& rhs);
   friend Term operator * <>(float c, const Term& rhs);
-  Term operator *(float c);
+  friend Term operator * <>(const Term& rhs, float c);
   Term operator *=(float c);
   T operator ()(float c);
   bool operator ==(const Term& rhs);

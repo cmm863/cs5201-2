@@ -22,22 +22,21 @@ T Term<T>::getCoefficient() const
 }
 
 template <typename T>
-const Term<T> Term<T>::operator+(const Term<T> &rhs)
+Term<T> operator +(const Term<T> &lhs, const Term<T> &rhs)
 {
-  return Term<T>(this->getCoefficient() + rhs.getCoefficient(), this->getDegree());
+  return Term<T>(lhs.getCoefficient() + rhs.getCoefficient(), lhs.getDegree());
 }
 
 template <typename T>
 Term<T> operator *(float c, const Term<T>& rhs)
 {
-  Term<T> ret = Term<T>(rhs.getCoefficient() * c, rhs.getDegree());
-  return ret;
+  return Term<T>(rhs.getCoefficient() * c, rhs.getDegree());
 }
 
 template <typename T>
-Term<T> Term<T>::operator *(float c)
+Term<T> operator *(const Term<T>& lhs, float c)
 {
-  return Term<T>(this->getCoefficient() * c, this->getDegree());
+  return c * lhs;
 }
 
 template <typename T>
