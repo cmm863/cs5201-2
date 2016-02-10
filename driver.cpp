@@ -59,6 +59,8 @@ int main(int argc, char* argv[])
       // Print out polynomial so we're sure it loaded correctly
       cout << polynomialVector[i](1) << endl;
     }
+    cout << (polynomialVector[0] == polynomialVector[1]) << endl;
+    cout << (polynomialVector[1] == polynomialVector[2]) << endl;
 
   }
   else // If file isn't open

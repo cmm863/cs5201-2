@@ -34,6 +34,7 @@ public:
   friend ostream& operator << <>(ostream& out, const PolynomialFunction<T>& rhs);
   const PolynomialFunction operator ~();
   const T operator ()(float c);
+  bool operator ==(PolynomialFunction& rhs);
 private:
   vector<Term<T> > m_terms;
 };

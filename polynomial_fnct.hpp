@@ -100,4 +100,23 @@ const T PolynomialFunction<T>::operator()(float c)
   return ret;
 }
 
+template <typename T>
+bool PolynomialFunction<T>::operator==(PolynomialFunction<T>& rhs)
+{
+  cout << "Size: " << m_terms.size() << endl;
+  cout << rhs.getNumTerms() << endl;
+  if(this->m_terms.size() != rhs.getNumTerms())
+  {
+    return false;
+  }
+  for(int i = 0; i < rhs.getNumTerms(); i++)
+  {
+    if(this->m_terms[i] != rhs[i])
+    {
+      return false;
+    }
+  }
+  return true;
+}
+
 #endif //INC_2_POLYNOMIAL_FNCT_HPP
