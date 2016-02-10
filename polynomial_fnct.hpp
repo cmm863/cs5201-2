@@ -68,17 +68,17 @@ const Term<T>& PolynomialFunction<T>::operator [](const int index)
 template <typename T>
 const PolynomialFunction<T> PolynomialFunction<T>::operator *(const long double c)
 {
-  for(int i = 0; i < m_terms.size(); i++)
+  for(int i = 0; i < this->m_terms.size(); i++)
   {
     m_terms[i] *= c;
   }
-  return *this;
+  return (*this);
 }
 
 template <typename T>
 const PolynomialFunction<T> PolynomialFunction<T>::operator ~()
 {
-  for(int i = 0; i < m_terms.size(); i++)
+  for(int i = 0; i < this->m_terms.size(); i++)
   {
     if(m_terms[i].getCoefficient() > 0)
     {
@@ -86,7 +86,7 @@ const PolynomialFunction<T> PolynomialFunction<T>::operator ~()
     }
   }
 
-  return *this;
+  return (*this);
 }
 
 template <typename T>
@@ -121,6 +121,16 @@ template <typename T>
 bool PolynomialFunction<T>::operator!=(PolynomialFunction<T> &rhs)
 {
   return !((*this) == rhs);
+}
+
+template <typename T>
+const PolynomialFunction<T> PolynomialFunction<T>::operator-()
+{
+  for(int i = 0; i < this->m_terms.size(); i++)
+  {
+    this->m_terms[i] *= -1;
+  }
+  return (*this);
 }
 
 #endif //INC_2_POLYNOMIAL_FNCT_HPP
