@@ -34,7 +34,6 @@ int main(int argc, char* argv[])
   if (inputFile.is_open())
   {
     inputFile >> numPolynomials;
-git
     // Create an array with each polynomial in it
     for(int i = 0; i < atoi(numPolynomials.c_str()); i++)
     {
