@@ -25,6 +25,8 @@ public:
   Term operator *(float c);
   Term operator *=(float c);
   T operator ()(float c);
+  bool operator ==(const Term& rhs);
+  bool operator !=(const Term& rhs);
 
 private:
   int m_degree;

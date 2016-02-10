@@ -16,6 +16,8 @@ int main(int argc, char* argv[])
 
   Term<int> a = Term<int>::Term(3, 5);
   Term<int> b = Term<int>::Term(4, 5);
+  cout << (a != b) << endl;
+  cout << (a != a) << endl;
   a = a * 5;
   cout << "d: " << a.getDegree() << endl;
   cout << "c: " << a.getCoefficient() << endl;

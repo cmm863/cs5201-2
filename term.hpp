@@ -52,3 +52,15 @@ T Term<T>::operator()(float c)
 {
   return this->getCoefficient() * (pow(c, this->getDegree()));
 }
+
+template <typename T>
+bool Term<T>::operator==(const Term<T> &rhs)
+{
+  return (this->getCoefficient() == rhs.getCoefficient()) == (this->getDegree() == rhs.getDegree());
+}
+
+template <typename T>
+bool Term<T>::operator!=(const Term<T> &rhs)
+{
+  return !((*this) == rhs);
+}
