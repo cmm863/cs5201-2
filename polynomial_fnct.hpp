@@ -103,8 +103,6 @@ const T PolynomialFunction<T>::operator()(float c)
 template <typename T>
 bool PolynomialFunction<T>::operator==(PolynomialFunction<T>& rhs)
 {
-  cout << "Size: " << m_terms.size() << endl;
-  cout << rhs.getNumTerms() << endl;
   if(this->m_terms.size() != rhs.getNumTerms())
   {
     return false;
@@ -117,6 +115,12 @@ bool PolynomialFunction<T>::operator==(PolynomialFunction<T>& rhs)
     }
   }
   return true;
+}
+
+template <typename T>
+bool PolynomialFunction<T>::operator!=(PolynomialFunction<T> &rhs)
+{
+  return !((*this) == rhs);
 }
 
 #endif //INC_2_POLYNOMIAL_FNCT_HPP
