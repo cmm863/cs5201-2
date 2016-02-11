@@ -48,7 +48,6 @@ public:
   bool operator ==(const PolynomialFunction& rhs) const;
   bool operator !=(const PolynomialFunction& rhs) const;
   PolynomialFunction operator +=(const PolynomialFunction& rhs);
-  PolynomialFunction operator *=(float c);
   friend PolynomialFunction operator + <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
   friend PolynomialFunction operator - <>(const PolynomialFunction& rhs);
   friend PolynomialFunction operator - <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);

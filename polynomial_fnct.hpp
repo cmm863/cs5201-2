@@ -92,13 +92,6 @@ PolynomialFunction<T> PolynomialFunction<T>::operator +=(const PolynomialFunctio
 }
 
 template <typename T>
-PolynomialFunction<T> PolynomialFunction<T>::operator *=(float c)
-{
-  *this = *this * c;
-  return *this;
-}
-
-template <typename T>
 PolynomialFunction<T> operator + (const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
 {
   PolynomialFunction<T> ret;
