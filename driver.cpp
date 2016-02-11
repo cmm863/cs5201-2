@@ -2,6 +2,7 @@
 #include <fstream>
 #include "term.h"
 #include "polynomial_fnct.h"
+#include "norm.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ int main(int argc, char* argv[])
   string numPolynomials, numTerms, coefficient, degree;
   ifstream inputFile(argv[1]);
   vector<PolynomialFunction<float> > polynomialVector;
+  Norm<float> normFunction;
 
   // Start going through file
   if (inputFile.is_open())
@@ -51,6 +53,7 @@ int main(int argc, char* argv[])
     cout << polynomialVector[0](-1) << endl;
     cout << 4 * polynomialVector[2] << endl;
     cout << (~polynomialVector[3])(2) << endl;
+    cout << normFunction(polynomialVector[0]) << endl;
   }
   else // If file isn't open
   {

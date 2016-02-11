@@ -10,6 +10,32 @@
 #include "polynomial_fnct.h"
 
 template <typename T>
+PolynomialFunction<T>::PolynomialFunction()
+{
+}
+
+template <typename T>
+PolynomialFunction<T>::PolynomialFunction(T coefficient, int degree)
+{
+  this->appendTerm(Term<T>(coefficient, degree));
+}
+
+template <typename T>
+PolynomialFunction<T>::PolynomialFunction(const PolynomialFunction<T>& other)
+{
+  for(int i = 0; i < other.getNumTerms(); i++)
+  {
+    this->appendTerm(other[i]);
+  }
+}
+
+template <typename T>
+PolynomialFunction<T>::~PolynomialFunction()
+{
+  this->m_terms.clear();
+}
+
+template <typename T>
 void PolynomialFunction<T>::appendTerm(Term <T> t)
 {
   for(auto i = m_terms.begin(); i != m_terms.end(); i++)
@@ -36,9 +62,8 @@ const Term<T>& PolynomialFunction<T>::operator [](const int index) const
   return m_terms[index];
 }
 
-
 template <typename T>
-const T PolynomialFunction<T>::operator()(float c)
+const T PolynomialFunction<T>::operator()(float c) const
 {
   T ret = 0;
   for(auto t : m_terms)

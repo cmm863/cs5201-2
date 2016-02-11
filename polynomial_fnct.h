@@ -42,23 +42,27 @@ ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs);
 template <typename T>
 class PolynomialFunction
 {
-public:
-  void appendTerm(Term<T> t);
-  unsigned long getNumTerms() const;
-  const Term<T>& operator [](const int index) const;
-  const T operator ()(float c);
-  bool operator ==(const PolynomialFunction& rhs) const;
-  bool operator !=(const PolynomialFunction& rhs) const;
-  PolynomialFunction operator +=(const PolynomialFunction& rhs);
-  friend PolynomialFunction operator - <>(const PolynomialFunction& rhs);
-  friend PolynomialFunction operator ~ <>(const PolynomialFunction& rhs);
-  friend PolynomialFunction operator + <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
-  friend PolynomialFunction operator - <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
-  friend PolynomialFunction operator * <>(float c, const PolynomialFunction& rhs);
-  friend PolynomialFunction operator * <>(const PolynomialFunction& lhs, float c);
-  friend ostream& operator << <>(ostream& out, const PolynomialFunction& rhs);
-private:
-  vector<Term<T> > m_terms;
+  public:
+    PolynomialFunction();
+    PolynomialFunction(T coefficient, int degree);
+    PolynomialFunction(const PolynomialFunction& other);
+    ~PolynomialFunction();
+    void appendTerm(const Term<T> t);
+    unsigned long getNumTerms() const;
+    const Term<T>& operator [](const int index) const;
+    const T operator ()(float c) const;
+    bool operator ==(const PolynomialFunction& rhs) const;
+    bool operator !=(const PolynomialFunction& rhs) const;
+    PolynomialFunction operator +=(const PolynomialFunction& rhs);
+    friend PolynomialFunction operator - <>(const PolynomialFunction& rhs);
+    friend PolynomialFunction operator ~ <>(const PolynomialFunction& rhs);
+    friend PolynomialFunction operator + <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
+    friend PolynomialFunction operator - <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
+    friend PolynomialFunction operator * <>(float c, const PolynomialFunction& rhs);
+    friend PolynomialFunction operator * <>(const PolynomialFunction& lhs, float c);
+    friend ostream& operator << <>(ostream& out, const PolynomialFunction& rhs);
+  private:
+    vector<Term<T> > m_terms;
 };
 
 #include "polynomial_fnct.hpp"
