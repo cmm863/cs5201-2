@@ -40,7 +40,7 @@ void PolynomialFunction<T>::appendTerm(Term <T> t)
 {
   for(auto i = m_terms.begin(); i != m_terms.end(); i++)
   {
-    if(t.getDegree() < i->getDegree())
+    if(t.getDegree() > i->getDegree())
     {
       m_terms.insert(i, t);
       return;
@@ -210,7 +210,34 @@ ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs)
 {
   for(auto i = rhs.m_terms.begin(); i != rhs.m_terms.end(); i++)
   {
-    out << i->getCoefficient() << " " << i->getDegree() << " ";
+    if(i->getCoefficient() < 0)
+    {
+      if(i == rhs.m_terms.begin())
+      {
+        out << "-";
+      }
+      else
+      {
+        out << "- ";
+      }
+      out << (-1 * i->getCoefficient());
+    }
+    else if(i->getCoefficient() > 0)
+    {
+      if(i != rhs.m_terms.begin())
+      {
+        cout << "+ ";
+      }
+    }
+    else
+    {
+      continue;
+    }
+
+    if(i->getDegree() > 0)
+    {
+      out << "x^" << i->getDegree() << " ";
+    }
   }
   return out;
 }
