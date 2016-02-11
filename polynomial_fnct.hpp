@@ -25,54 +25,15 @@ void PolynomialFunction<T>::appendTerm(Term <T> t)
 }
 
 template <typename T>
-string PolynomialFunction<T>::debugString()
-{
-  string ret = "";
-  for(auto t : m_terms)
-  {
-    ret += "Coefficient: " + to_string(t.getCoefficient()) + "\n";
-    ret += "Degree: " + to_string(t.getDegree()) + "\n";
-  }
-  return ret;
-}
-
-template <typename T>
-unsigned long PolynomialFunction<T>::getNumTerms()
+unsigned long PolynomialFunction<T>::getNumTerms() const
 {
   return m_terms.size();
 }
 
 template <typename T>
-PolynomialFunction<T>& PolynomialFunction<T>::operator +=(const PolynomialFunction<T> &rhs)
-{
-  set<int> degrees;
-
-}
-
-template <typename T>
-ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs)
-{
-  for(auto i = rhs.m_terms.begin(); i != rhs.m_terms.end(); i++)
-  {
-    out << i->getCoefficient() << " " << i->getDegree() << " ";
-  }
-  return out;
-}
-
-template <typename T>
-const Term<T>& PolynomialFunction<T>::operator [](const int index)
+const Term<T>& PolynomialFunction<T>::operator [](const int index) const
 {
   return m_terms[index];
-}
-
-template <typename T>
-const PolynomialFunction<T> PolynomialFunction<T>::operator *(const long double c)
-{
-  for(int i = 0; i < this->m_terms.size(); i++)
-  {
-    m_terms[i] *= c;
-  }
-  return (*this);
 }
 
 template <typename T>
@@ -123,14 +84,98 @@ bool PolynomialFunction<T>::operator!=(PolynomialFunction<T> &rhs)
   return !((*this) == rhs);
 }
 
+
 template <typename T>
-const PolynomialFunction<T> PolynomialFunction<T>::operator-()
+PolynomialFunction<T> operator + (const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
 {
-  for(int i = 0; i < this->m_terms.size(); i++)
+  PolynomialFunction<T> ret;
+
+  auto leftIterator = lhs.m_terms.begin();
+  auto rightIterator = rhs.m_terms.begin();
+  auto leftEnd = lhs.m_terms.end();
+  auto rightEnd = rhs.m_terms.end();
+  while(leftIterator != leftEnd || rightIterator != rightEnd)
   {
-    this->m_terms[i] *= -1;
+    if(leftIterator == leftEnd)
+    {
+      while(rightIterator != rightEnd)
+      {
+        ret.appendTerm(*rightIterator);
+        rightIterator++;
+      }
+    }
+    else if(rightIterator == rightEnd)
+    {
+      while(leftIterator != leftEnd)
+      {
+        ret.appendTerm(*leftIterator);
+        leftIterator++;
+      }
+    }
+    else
+    {
+      if(leftIterator->getDegree() < rightIterator->getDegree())
+      {
+        ret.appendTerm(*leftIterator);
+        leftIterator++;
+      }
+      else if(rightIterator->getDegree() < leftIterator->getDegree())
+      {
+        ret.appendTerm(*rightIterator);
+        rightIterator++;
+      }
+      else
+      {
+        ret.appendTerm((*leftIterator + *rightIterator));
+        rightIterator++;
+        leftIterator++;
+      }
+    }
   }
-  return (*this);
+
+  return ret;
 }
+
+template <typename T>
+PolynomialFunction<T> operator - (const PolynomialFunction<T>& rhs)
+{
+  return -1 * rhs;
+}
+
+template <typename T>
+PolynomialFunction<T> operator - (const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
+{
+  return lhs + (-rhs);
+}
+
+template <typename T>
+PolynomialFunction<T> operator * (float c, const PolynomialFunction<T>& rhs)
+{
+  PolynomialFunction<T> ret;
+
+  for(int i = 0; i < rhs.getNumTerms(); i++)
+  {
+    ret.appendTerm(c * rhs[i]);
+  }
+
+  return ret;
+}
+
+template <typename T>
+PolynomialFunction<T> operator *(const PolynomialFunction<T>& lhs, float c)
+{
+  return c * lhs;
+}
+
+template <typename T>
+ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs)
+{
+  for(auto i = rhs.m_terms.begin(); i != rhs.m_terms.end(); i++)
+  {
+    out << i->getCoefficient() << " " << i->getDegree() << " ";
+  }
+  return out;
+}
+
 
 #endif //INC_2_POLYNOMIAL_FNCT_HPP
