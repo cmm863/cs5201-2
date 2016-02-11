@@ -25,26 +25,26 @@ T Term<T>::getCoefficient() const
 }
 
 template <typename T>
-Term<T> Term<T>::operator*=(float c)
+Term<T> Term<T>::operator *=(float c)
 {
   this->m_coefficient = this->m_coefficient * c;
   return (*this);
 }
 
 template <typename T>
-T Term<T>::operator()(float c)
+T Term<T>::operator ()(float c) const
 {
   return this->getCoefficient() * (pow(c, this->getDegree()));
 }
 
 template <typename T>
-bool Term<T>::operator==(const Term<T> &rhs) const
+bool Term<T>::operator ==(const Term<T> &rhs) const
 {
   return (this->getCoefficient() == rhs.getCoefficient()) && (this->getDegree() == rhs.getDegree());
 }
 
 template <typename T>
-bool Term<T>::operator!=(const Term<T> &rhs) const
+bool Term<T>::operator !=(const Term<T> &rhs) const
 {
   return !((*this) == rhs);
 }
