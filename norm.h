@@ -7,10 +7,11 @@
 
 #include "polynomial_fnct.h"
 
-template <typename T>
+
 class Norm
 {
   public:
+    template <typename T>
     float operator ()(const PolynomialFunction<T>& pf) const;
 };
 

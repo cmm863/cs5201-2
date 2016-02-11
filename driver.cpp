@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
   string numPolynomials, numTerms, coefficient, degree;
   ifstream inputFile(argv[1]);
   vector<PolynomialFunction<float> > polynomialVector;
-  Norm<float> normFunction;
+  Norm normFunction;
 
   // Start going through file
   if (inputFile.is_open())

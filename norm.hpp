@@ -10,7 +10,7 @@
 #include <cmath>
 
 template <typename T>
-float Norm<T>::operator()(const PolynomialFunction<T> &pf) const
+float Norm::operator()(const PolynomialFunction<T> &pf) const
 {
   float ret = 0;
   for(int i = 0; i < pf.getNumTerms(); i++)
