@@ -17,10 +17,13 @@ template <typename T>
 class PolynomialFunction;
 
 template <typename T>
-PolynomialFunction<T> operator +(const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs);
+PolynomialFunction<T> operator -(const PolynomialFunction<T>& rhs);
 
 template <typename T>
-PolynomialFunction<T> operator -(const PolynomialFunction<T>& rhs);
+PolynomialFunction<T> operator ~(const PolynomialFunction<T>& rhs);
+
+template <typename T>
+PolynomialFunction<T> operator +(const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs);
 
 template <typename T>
 PolynomialFunction<T> operator -(const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs);
@@ -43,13 +46,13 @@ public:
   void appendTerm(Term<T> t);
   unsigned long getNumTerms() const;
   const Term<T>& operator [](const int index) const;
-  const PolynomialFunction operator ~();
   const T operator ()(float c);
   bool operator ==(const PolynomialFunction& rhs) const;
   bool operator !=(const PolynomialFunction& rhs) const;
   PolynomialFunction operator +=(const PolynomialFunction& rhs);
-  friend PolynomialFunction operator + <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
   friend PolynomialFunction operator - <>(const PolynomialFunction& rhs);
+  friend PolynomialFunction operator ~ <>(const PolynomialFunction& rhs);
+  friend PolynomialFunction operator + <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
   friend PolynomialFunction operator - <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
   friend PolynomialFunction operator * <>(float c, const PolynomialFunction& rhs);
   friend PolynomialFunction operator * <>(const PolynomialFunction& lhs, float c);

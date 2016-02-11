@@ -36,19 +36,6 @@ const Term<T>& PolynomialFunction<T>::operator [](const int index) const
   return m_terms[index];
 }
 
-template <typename T>
-const PolynomialFunction<T> PolynomialFunction<T>::operator ~()
-{
-  for(int i = 0; i < this->m_terms.size(); i++)
-  {
-    if(m_terms[i].getCoefficient() > 0)
-    {
-      m_terms[i] *= -1;
-    }
-  }
-
-  return (*this);
-}
 
 template <typename T>
 const T PolynomialFunction<T>::operator()(float c)
@@ -89,6 +76,32 @@ PolynomialFunction<T> PolynomialFunction<T>::operator +=(const PolynomialFunctio
 {
   *this = *this + rhs;
   return *this;
+}
+
+template <typename T>
+PolynomialFunction<T> operator - (const PolynomialFunction<T>& rhs)
+{
+  return -1 * rhs;
+}
+
+template <typename T>
+PolynomialFunction<T> operator ~(const PolynomialFunction<T>& rhs)
+{
+  PolynomialFunction<T> ret;
+  int multiplier;
+  for(int i = 0; i < rhs.getNumTerms(); i++)
+  {
+    if(rhs[i].getCoefficient() > 0)
+    {
+      multiplier = -1;
+    }
+    else
+    {
+      multiplier = 1;
+    }
+    ret.appendTerm(Term<T>(multiplier * rhs[i].getCoefficient(), rhs[i].getDegree()));
+  }
+  return ret;
 }
 
 template <typename T>
@@ -140,12 +153,6 @@ PolynomialFunction<T> operator + (const PolynomialFunction<T>& lhs, const Polyno
   }
 
   return ret;
-}
-
-template <typename T>
-PolynomialFunction<T> operator - (const PolynomialFunction<T>& rhs)
-{
-  return -1 * rhs;
 }
 
 template <typename T>

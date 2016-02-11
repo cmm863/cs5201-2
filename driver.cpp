@@ -14,17 +14,6 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  Term<int> a = Term<int>::Term(3, 5);
-  Term<int> b = Term<int>::Term(4, 5);
-  cout << (a != b) << endl;
-  cout << (a != a) << endl;
-  a = a + b + a;
-  cout << "d: " << a.getDegree() << endl;
-  cout << "c: " << a.getCoefficient() << endl;
-  a *= 5;
-  cout << "d: " << a.getDegree() << endl;
-  cout << "c: " << a.getCoefficient() << endl;
-
   // Declare variables
   string numPolynomials, numTerms, coefficient, degree;
   ifstream inputFile(argv[1]);
@@ -55,24 +44,13 @@ int main(int argc, char* argv[])
         // Add term to polynomial
         polynomialVector[i].appendTerm(Term<float>::Term(stof(coefficient.c_str()), atoi(degree.c_str())));
       }
-      // Print out polynomial so we're sure it loaded correctly
-      cout << polynomialVector[i](1) << endl;
     }
-    cout << "0" << endl;
+    polynomialVector[0] += polynomialVector[1];
     cout << polynomialVector[0] << endl;
-    cout << "2" << endl;
-    cout << polynomialVector[2] << endl;
-    polynomialVector[0] += polynomialVector[2] += polynomialVector[1];
-    cout << "0 + 1 + 2" << endl;
-    cout << polynomialVector[0] << endl;
-    cout << "1 + 2" << endl;
-    cout << polynomialVector[2] << endl;
-    cout << polynomialVector[0] - polynomialVector[2] << endl;
-    polynomialVector[0] = 4 * polynomialVector[0];
-    cout << polynomialVector[0] << endl;
-    cout << (polynomialVector[0] != polynomialVector[1]) << endl;
-    cout << (polynomialVector[1] != polynomialVector[2]) << endl;
-
+    cout << -polynomialVector[0] << endl;
+    cout << polynomialVector[0](-1) << endl;
+    cout << 4 * polynomialVector[2] << endl;
+    cout << (~polynomialVector[3])(2) << endl;
   }
   else // If file isn't open
   {
