@@ -11,7 +11,7 @@ template <typename T>
 class Norm
 {
   public:
-    float operator ()(const PolynomialFunction<T>& pf);
+    float operator ()(const PolynomialFunction<T>& pf) const;
 };
 
 #include "norm.hpp"
