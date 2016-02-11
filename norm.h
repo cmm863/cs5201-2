@@ -1,14 +1,27 @@
+#ifndef INC_2_NORM_H
+#define INC_2_NORM_H
+
 //////////////////////////////////////////////////////////////////////
 /// @file norm.h
 /// @author Connor McBride
 /// @brief Contains the declaration information for the Norm class
 //////////////////////////////////////////////////////////////////////
 
-#ifndef INC_2_NORM_H
-#define INC_2_NORM_H
+//////////////////////////////////////////////////////////////////////
+/// @class Norm
+/// @brief Is a function class to implement the infinity Norm
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
+/// @fn float Norm::operator ()(const PolynomialFunction<T> &pf) const
+/// @brief Overloads the () operator to act as a function class.
+/// @pre The type of T should be resolvable to a float.
+/// @post None
+/// @param pf holds the reference of a PolynomialFunction with type T
+/// @return Returns the infinity norm as described in homework description
+//////////////////////////////////////////////////////////////////////
 
 #include "polynomial_fnct.h"
-
 
 class Norm
 {
