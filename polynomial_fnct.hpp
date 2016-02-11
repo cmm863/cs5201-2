@@ -226,8 +226,9 @@ ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs)
     {
       if(i != rhs.m_terms.begin())
       {
-        cout << "+ ";
+        out << "+ ";
       }
+      out << i->getCoefficient();
     }
     else
     {
