@@ -25,16 +25,15 @@ class Term
 public:
   Term();
   Term(T m_coefficient, int m_degree) : m_coefficient(m_coefficient), m_degree(m_degree) { };
-
   int getDegree() const;
   T getCoefficient() const;
-  friend Term operator + <>(const Term& lhs, const Term& rhs);
-  friend Term operator * <>(float c, const Term& rhs);
-  friend Term operator * <>(const Term& rhs, float c);
   Term operator *=(float c);
   T operator ()(float c);
   bool operator ==(const Term& rhs) const;
   bool operator !=(const Term& rhs) const;
+  friend Term operator * <>(float c, const Term& rhs);
+  friend Term operator * <>(const Term& rhs, float c);
+  friend Term operator + <>(const Term& lhs, const Term& rhs);
 
 private:
   int m_degree;

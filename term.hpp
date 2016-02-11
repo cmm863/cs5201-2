@@ -22,24 +22,6 @@ T Term<T>::getCoefficient() const
 }
 
 template <typename T>
-Term<T> operator +(const Term<T> &lhs, const Term<T> &rhs)
-{
-  return Term<T>(lhs.getCoefficient() + rhs.getCoefficient(), lhs.getDegree());
-}
-
-template <typename T>
-Term<T> operator *(float c, const Term<T>& rhs)
-{
-  return Term<T>(rhs.getCoefficient() * c, rhs.getDegree());
-}
-
-template <typename T>
-Term<T> operator *(const Term<T>& lhs, float c)
-{
-  return c * lhs;
-}
-
-template <typename T>
 Term<T> Term<T>::operator*=(float c)
 {
   this->m_coefficient = this->m_coefficient * c;
@@ -62,4 +44,22 @@ template <typename T>
 bool Term<T>::operator!=(const Term<T> &rhs) const
 {
   return !((*this) == rhs);
+}
+
+template <typename T>
+Term<T> operator *(float c, const Term<T>& rhs)
+{
+  return Term<T>(rhs.getCoefficient() * c, rhs.getDegree());
+}
+
+template <typename T>
+Term<T> operator *(const Term<T>& lhs, float c)
+{
+  return c * lhs;
+}
+
+template <typename T>
+Term<T> operator +(const Term<T> &lhs, const Term<T> &rhs)
+{
+  return Term<T>(lhs.getCoefficient() + rhs.getCoefficient(), lhs.getDegree());
 }
