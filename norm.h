@@ -1,5 +1,5 @@
-#ifndef INC_2_NORM_H
-#define INC_2_NORM_H
+#ifndef NORM_H
+#define NORM_H
 
 //////////////////////////////////////////////////////////////////////
 /// @file norm.h
@@ -32,4 +32,4 @@ class Norm
 
 #include "norm.hpp"
 
-#endif //INC_2_NORM_H
+#endif //NORM_H
