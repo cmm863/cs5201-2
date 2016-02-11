@@ -45,6 +45,11 @@ void PolynomialFunction<T>::appendTerm(Term <T> t)
       m_terms.insert(i, t);
       return;
     }
+    else if (t.getDegree() == i->getDegree())
+    {
+      *i = *i + t;
+      return;
+    }
   }
   m_terms.push_back(t);
   return;
