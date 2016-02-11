@@ -1,6 +1,8 @@
-//
-// Created by Connor McBride on 2/2/16.
-//
+//////////////////////////////////////////////////////////////////////
+/// @file polynomial_fnct.h
+/// @author Connor McBride
+/// @brief Contains the declaration information for the PolynomialFunction class
+//////////////////////////////////////////////////////////////////////
 
 #ifndef INC_2_POLYNOMIAL_FNCT_H
 #define INC_2_POLYNOMIAL_FNCT_H

@@ -1,6 +1,9 @@
-//
-// Created by Connor McBride on 2/2/16.
-//
+//////////////////////////////////////////////////////////////////////
+/// @file term.hpp
+/// @author Connor McBride
+/// @brief Contains the Term class implementation information
+//////////////////////////////////////////////////////////////////////
+
 #include "term.h"
 #include <cmath>
 template <typename T>
