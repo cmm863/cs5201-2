@@ -4,8 +4,8 @@
 /// @brief Contains the norm class implementation information
 //////////////////////////////////////////////////////////////////////
 
-#ifndef INC_2_NORM_HPP
-#define INC_2_NORM_HPP
+#ifndef NORM_HPP
+#define NORM_HPP
 
 #include "polynomial_fnct.h"
 #include "norm.h"
@@ -23,4 +23,4 @@ float Norm::operator ()(const PolynomialFunction<T> &pf) const
   return sqrt(ret);
 }
 
-#endif //INC_2_NORM_HPP
+#endif //NORM_HPP

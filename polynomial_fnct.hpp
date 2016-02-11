@@ -4,8 +4,8 @@
 /// @brief Contains the PolynomialFunction class implementation information
 //////////////////////////////////////////////////////////////////////
 
-#ifndef INC_2_POLYNOMIAL_FNCT_HPP
-#define INC_2_POLYNOMIAL_FNCT_HPP
+#ifndef POLYNOMIAL_FNCT_HPP
+#define POLYNOMIAL_FNCT_HPP
 
 #include <set>
 #include "term.h"
@@ -251,4 +251,4 @@ ostream& operator <<(ostream& out, const PolynomialFunction<T>& rhs)
 }
 
 
-#endif //INC_2_POLYNOMIAL_FNCT_HPP
+#endif //POLYNOMIAL_FNCT_HPP

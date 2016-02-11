@@ -4,8 +4,12 @@
 /// @brief Contains the Term class implementation information
 //////////////////////////////////////////////////////////////////////
 
+#ifndef TERM_HPP
+#define TERM_HPP
+
 #include "term.h"
 #include <cmath>
+
 template <typename T>
 Term<T>::Term()
 {
@@ -66,3 +70,5 @@ Term<T> operator +(const Term<T> &lhs, const Term<T> &rhs)
 {
   return Term<T>(lhs.getCoefficient() + rhs.getCoefficient(), lhs.getDegree());
 }
+
+#endif //TERM_HPP
