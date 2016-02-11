@@ -45,8 +45,8 @@ public:
   const Term<T>& operator [](const int index) const;
   const PolynomialFunction operator ~();
   const T operator ()(float c);
-  bool operator ==(PolynomialFunction& rhs);
-  bool operator !=(PolynomialFunction& rhs);
+  bool operator ==(const PolynomialFunction& rhs) const;
+  bool operator !=(const PolynomialFunction& rhs) const;
   friend PolynomialFunction operator + <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);
   friend PolynomialFunction operator - <>(const PolynomialFunction& rhs);
   friend PolynomialFunction operator - <>(const PolynomialFunction& lhs, const PolynomialFunction& rhs);

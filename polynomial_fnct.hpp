@@ -62,7 +62,7 @@ const T PolynomialFunction<T>::operator()(float c)
 }
 
 template <typename T>
-bool PolynomialFunction<T>::operator==(PolynomialFunction<T>& rhs)
+bool PolynomialFunction<T>::operator==(const PolynomialFunction<T>& rhs) const
 {
   if(this->m_terms.size() != rhs.getNumTerms())
   {
@@ -79,7 +79,7 @@ bool PolynomialFunction<T>::operator==(PolynomialFunction<T>& rhs)
 }
 
 template <typename T>
-bool PolynomialFunction<T>::operator!=(PolynomialFunction<T> &rhs)
+bool PolynomialFunction<T>::operator!=(const PolynomialFunction<T> &rhs) const
 {
   return !((*this) == rhs);
 }

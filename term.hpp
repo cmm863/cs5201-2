@@ -53,13 +53,13 @@ T Term<T>::operator()(float c)
 }
 
 template <typename T>
-bool Term<T>::operator==(const Term<T> &rhs)
+bool Term<T>::operator==(const Term<T> &rhs) const
 {
   return (this->getCoefficient() == rhs.getCoefficient()) && (this->getDegree() == rhs.getDegree());
 }
 
 template <typename T>
-bool Term<T>::operator!=(const Term<T> &rhs)
+bool Term<T>::operator!=(const Term<T> &rhs) const
 {
   return !((*this) == rhs);
 }

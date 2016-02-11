@@ -33,8 +33,8 @@ public:
   friend Term operator * <>(const Term& rhs, float c);
   Term operator *=(float c);
   T operator ()(float c);
-  bool operator ==(const Term& rhs);
-  bool operator !=(const Term& rhs);
+  bool operator ==(const Term& rhs) const;
+  bool operator !=(const Term& rhs) const;
 
 private:
   int m_degree;
