@@ -58,10 +58,14 @@ int main(int argc, char* argv[])
       // Print out polynomial so we're sure it loaded correctly
       cout << polynomialVector[i](1) << endl;
     }
+    cout << "0" << endl;
     cout << polynomialVector[0] << endl;
-    cout << -polynomialVector[0] << endl;
-    polynomialVector[0] *= 4;
+    cout << "2" << endl;
+    cout << polynomialVector[2] << endl;
+    polynomialVector[0] += polynomialVector[2] += polynomialVector[1];
+    cout << "0 + 1 + 2" << endl;
     cout << polynomialVector[0] << endl;
+    cout << "1 + 2" << endl;
     cout << polynomialVector[2] << endl;
     cout << polynomialVector[0] - polynomialVector[2] << endl;
     polynomialVector[0] = 4 * polynomialVector[0];
