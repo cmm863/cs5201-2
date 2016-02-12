@@ -134,7 +134,7 @@ class Term
 {
 public:
   Term();
-  Term(T coefficient, int degree) : m_coefficient(coefficient), m_degree(degree) { };
+  Term(T coefficient, int degree) : m_degree(degree), m_coefficient(coefficient){ };
   int getDegree() const;
   T getCoefficient() const;
   Term operator *=(float c);

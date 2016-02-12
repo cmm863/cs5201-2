@@ -19,7 +19,7 @@ float Norm::operator ()(const vector<PolynomialFunction<T> >& pfs) const
   for(PolynomialFunction<T> pf : pfs)
   {
     temp = 0;
-    for(int i = 0; i < pf.getNumTerms(); i++)
+    for(unsigned long i = 0; i < pf.getNumTerms(); i++)
     {
       temp += pow(pf[i].getCoefficient(), 2);
     }

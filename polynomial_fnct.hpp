@@ -25,7 +25,7 @@ PolynomialFunction<T>::PolynomialFunction(T coefficient, int degree)
 template <typename T>
 PolynomialFunction<T>::PolynomialFunction(const PolynomialFunction<T>& other)
 {
-  for(int i = 0; i < other.getNumTerms(); i++)
+  for(unsigned long i = 0; i < other.getNumTerms(); i++)
   {
     this->appendTerm(other[i]);
   }
@@ -121,7 +121,7 @@ PolynomialFunction<T> operator ~(const PolynomialFunction<T>& rhs)
 {
   PolynomialFunction<T> ret;
   int multiplier;
-  for(int i = 0; i < rhs.getNumTerms(); i++)
+  for(unsigned long i = 0; i < rhs.getNumTerms(); i++)
   {
     if(rhs[i].getCoefficient() > 0)
     {
@@ -198,7 +198,7 @@ PolynomialFunction<T> operator *(float c, const PolynomialFunction<T>& rhs)
 {
   PolynomialFunction<T> ret;
 
-  for(int i = 0; i < rhs.getNumTerms(); i++)
+  for(unsigned long i = 0; i < rhs.getNumTerms(); i++)
   {
     ret.appendTerm(c * rhs[i]);
   }
