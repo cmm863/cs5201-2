@@ -12,15 +12,26 @@
 #include <cmath>
 
 template <typename T>
-float Norm::operator ()(const PolynomialFunction<T> &pf) const
+float Norm::operator ()(const vector<PolynomialFunction<T> >& pfs) const
 {
-  float ret = 0;
-  for(int i = 0; i < pf.getNumTerms(); i++)
+  float temp;
+  float largest = 0;
+  for(PolynomialFunction<T> pf : pfs)
   {
-    ret += pow(pf[i].getCoefficient(), 2);
+    temp = 0;
+    for(int i = 0; i < pf.getNumTerms(); i++)
+    {
+      temp += pow(pf[i].getCoefficient(), 2);
+    }
+    temp = sqrt(temp);
+    if(temp > largest)
+    {
+      largest = temp;
+    }
   }
 
-  return sqrt(ret);
+
+  return largest;
 }
 
 #endif //NORM_HPP

@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
     cout << polynomialVector[0](-1) << endl;
     cout << 4 * polynomialVector[2] << endl;
     cout << (~polynomialVector[3])(2) << endl;
-    cout << normFunction(polynomialVector[0]) << endl;
+    cout << normFunction(polynomialVector) << endl;
   }
   else // If file isn't open
   {
