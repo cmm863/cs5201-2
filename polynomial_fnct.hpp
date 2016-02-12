@@ -38,7 +38,7 @@ PolynomialFunction<T>::~PolynomialFunction()
 }
 
 template <typename T>
-void PolynomialFunction<T>::appendTerm(Term <T> t)
+void PolynomialFunction<T>::appendTerm(const Term <T> t)
 {
   for(auto i = m_terms.begin(); i != m_terms.end(); i++)
   {
@@ -64,13 +64,13 @@ unsigned long PolynomialFunction<T>::getNumTerms() const
 }
 
 template <typename T>
-const Term<T>& PolynomialFunction<T>::operator [](const int index) const
+const Term<T>& PolynomialFunction<T>::operator [](int index) const
 {
   return m_terms[index];
 }
 
 template <typename T>
-const T PolynomialFunction<T>::operator()(float c) const
+T PolynomialFunction<T>::operator ()(float c) const
 {
   T ret = 0;
   for(auto t : m_terms)
@@ -81,7 +81,7 @@ const T PolynomialFunction<T>::operator()(float c) const
 }
 
 template <typename T>
-bool PolynomialFunction<T>::operator==(const PolynomialFunction<T>& rhs) const
+bool PolynomialFunction<T>::operator ==(const PolynomialFunction<T>& rhs) const
 {
   if(this->m_terms.size() != rhs.getNumTerms())
   {
@@ -98,20 +98,20 @@ bool PolynomialFunction<T>::operator==(const PolynomialFunction<T>& rhs) const
 }
 
 template <typename T>
-bool PolynomialFunction<T>::operator!=(const PolynomialFunction<T> &rhs) const
+bool PolynomialFunction<T>::operator !=(const PolynomialFunction<T> &rhs) const
 {
   return !((*this) == rhs);
 }
 
 template <typename T>
-PolynomialFunction<T> PolynomialFunction<T>::operator +=(const PolynomialFunction<T> &rhs)
+PolynomialFunction<T>& PolynomialFunction<T>::operator +=(const PolynomialFunction<T> &rhs)
 {
   *this = *this + rhs;
   return *this;
 }
 
 template <typename T>
-PolynomialFunction<T> operator - (const PolynomialFunction<T>& rhs)
+PolynomialFunction<T> operator -(const PolynomialFunction<T>& rhs)
 {
   return -1 * rhs;
 }
@@ -137,7 +137,7 @@ PolynomialFunction<T> operator ~(const PolynomialFunction<T>& rhs)
 }
 
 template <typename T>
-PolynomialFunction<T> operator + (const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
+PolynomialFunction<T> operator +(const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
 {
   PolynomialFunction<T> ret;
 
@@ -188,13 +188,13 @@ PolynomialFunction<T> operator + (const PolynomialFunction<T>& lhs, const Polyno
 }
 
 template <typename T>
-PolynomialFunction<T> operator - (const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
+PolynomialFunction<T> operator -(const PolynomialFunction<T>& lhs, const PolynomialFunction<T>& rhs)
 {
   return lhs + (-rhs);
 }
 
 template <typename T>
-PolynomialFunction<T> operator * (float c, const PolynomialFunction<T>& rhs)
+PolynomialFunction<T> operator *(float c, const PolynomialFunction<T>& rhs)
 {
   PolynomialFunction<T> ret;
 
